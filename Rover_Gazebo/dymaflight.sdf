@@ -1,0 +1,406 @@
+<?xml version="1.0" ?>
+<sdf version='1.10'>
+<world name = "default">
+  <model name='dymaflight'>
+    <link name='dyma_base_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='joint1' type='revolute'>
+      <pose relative_to='dyma_base_link'>0 0 0.18160999999999999 0 0 0</pose>
+      <parent>dyma_base_link</parent>
+      <child>shld_yaw</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='shld_yaw'>
+      <pose relative_to='joint1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_yaw.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_yaw.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+	  <ambient>0 0 0 1</ambient>
+	  <diffuse>0 0 0 1</diffuse>
+	  <specular>0 0 0 1</specular>
+	  <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+    <joint name='joint2' type='revolute'>
+      <pose relative_to='shld_yaw'>0 0 0 -1.5708 0 3.1415899999999999</pose>
+      <parent>shld_yaw</parent>
+      <child>shld_ptch</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='shld_ptch'>
+      <pose relative_to='joint2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+            <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+	  <ambient>0.5 0.5 0.5 1</ambient>
+	  <diffuse>0.5 0.5 0.5 1</diffuse>
+	  <specular>0.5 0.5 0.5 1</specular>
+	  <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+    <joint name='joint3' type='revolute'>
+      <pose relative_to='shld_ptch'>0 -0.43002200000000002 0 1.5708 0 0</pose>
+      <parent>shld_ptch</parent>
+      <child>shld_roll</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='shld_roll'>
+      <pose relative_to='joint3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+                  <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_roll.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://shld_roll.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+<material>
+    <ambient>0.3 0.15 0.05 1</ambient>
+    <diffuse>0.6 0.3 0.1 1</diffuse>
+    <specular>0.2 0.1 0.05 1</specular>
+    <emissive>0 0 0 1</emissive>
+</material>
+      </visual>
+    </link>
+    <joint name='joint4' type='revolute'>
+      <pose relative_to='shld_roll'>0.041402000000000001 0 0 1.5707926535897929 -2.6535897933558441e-06 3.1415926535897931</pose>
+      <parent>shld_roll</parent>
+      <child>elbw_ptch</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='elbw_ptch'>
+      <pose relative_to='joint4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+                  <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://elbw_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://elbw_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+	  <ambient>0.5 0.5 0.5 1</ambient>
+	  <diffuse>0.5 0.5 0.5 1</diffuse>
+	  <specular>0.5 0.5 0.5 1</specular>
+	  <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+    <joint name='joint5' type='revolute'>
+      <pose relative_to='elbw_ptch'>0.041402000000000001 0.37084 0 -1.5708 0 0</pose>
+      <parent>elbw_ptch</parent>
+      <child>wrst_roll</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wrst_roll'>
+      <pose relative_to='joint5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_roll.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_roll.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+    <ambient>0.3 0.15 0.05 1</ambient>
+    <diffuse>0.6 0.3 0.1 1</diffuse>
+    <specular>0.2 0.1 0.05 1</specular>
+    <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+    <joint name='joint6' type='revolute'>
+      <pose relative_to='wrst_roll'>0.033273999999999998 -0.0073660000000000002 0 -1.5708 0 3.1415899999999999</pose>
+      <parent>wrst_roll</parent>
+      <child>wrst_ptch</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wrst_ptch'>
+      <pose relative_to='joint6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+            <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+    <ambient>0.5 0.5 0.5 1</ambient>
+    <diffuse>0.5 0.5 0.5 1</diffuse>
+    <specular>0.5 0.5 0.5 1</specular>
+    <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+    <joint name='joint7' type='revolute'>
+      <pose relative_to='wrst_ptch'>0.033273999999999998 0 0 1.5708 0 0</pose>
+      <parent>wrst_ptch</parent>
+      <child>tool_roll</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.1415899999999999</lower>
+          <upper>3.1415899999999999</upper>
+          <effort>300</effort>
+          <velocity>0.25</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='tool_roll'>
+      <pose relative_to='joint7'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name = 'collision'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+            <visual name = 'visual'>
+        <geometry>
+          <mesh>
+            <uri>model://wrst_ptch.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+    <ambient>0 0 0 1</ambient>
+    <diffuse>0 0 0 1</diffuse>
+    <specular>0 0 0 1</specular>
+    <emissive>0 0 0 1</emissive>
+	</material>
+      </visual>
+    </link>
+  </model>
+  </world>
+</sdf>

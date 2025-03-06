@@ -1,0 +1,488 @@
+<sdf version='1.10'>
+  <world name='default'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -1.6200000000000001</gravity>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <light name='sun' type='directional'>
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.90000000000000002</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+    </light>
+    <model name='ground_plane'>
+      <pose relative_to='world'>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='crane'>
+      <joint name='shoulder_mount_joint' type='revolute'>
+        <pose relative_to='__model__'>0 0 20 0 0 0</pose>
+        <parent>world</parent>
+        <child>shoulder_mount</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>100</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='shoulder_mount'>
+        <pose relative_to='shoulder_mount_joint'>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.10000000000000001</mass>
+          <inertia>
+            <ixx>0.029999999999999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.029999999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>0.029999999999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://shoulder_mount.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://shoulder_mount.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <joint name='segment_4.2_joint' type='revolute'>
+        <pose relative_to='segment_4.2'>0 141.5 -3.1499999999999999 0 0 0</pose>
+        <parent>shoulder_mount</parent>
+        <child>segment_4.2</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='segment_4.2'>
+        <pose relative_to='shoulder_mount'>-123 0 7.5 0 0 -1.5708</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00029999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00029999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.00029999999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_4.2.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_4.2.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>1 0 0 1</specular>
+            <emissive>1 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <joint name='segment_3.2_joint' type='prismatic'>
+        <pose relative_to='segment_4.2'>0 0 0 0 0 0</pose>
+        <parent>segment_4.2</parent>
+        <child>segment_3.2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='segment_3.2'>
+        <pose relative_to='segment_4.2'>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00029999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00029999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.00029999999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_3.2.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_3.2.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>1 1 1 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <joint name='segment_2_joint' type='prismatic'>
+        <pose relative_to='segment_3.2'>0 0 0 0 0 0</pose>
+        <parent>segment_3.2</parent>
+        <child>segment_2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='segment_2'>
+        <pose relative_to='segment_3.2'>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00029999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00029999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.00029999999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_2.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_2.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <specular>0 0 1 1</specular>
+            <emissive>0 0 1 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <joint name='segment_1_joint' type='prismatic'>
+        <pose relative_to='segment_2'>0 0 0 0 0 0</pose>
+        <parent>segment_2</parent>
+        <child>segment_1</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='segment_1'>
+        <pose relative_to='segment_2'>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00029999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00029999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.00029999999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_1.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://segment_1.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.100000001 0.100000001 0.100000001 1</ambient>
+            <diffuse>0.100000001 0.100000001 0.100000001 1</diffuse>
+            <specular>0.100000001 0.100000001 0.100000001 1</specular>
+            <emissive>0.100000001 0.100000001 0.100000001 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <joint name='clearance_arm_joint' type='revolute'>
+        <pose relative_to='segment_1'>-0.14999999999999999 0 0 0 0 0</pose>
+        <parent>segment_1</parent>
+        <child>clearance_arm</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-10</lower>
+            <upper>10</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+          </limit>
+        </axis>
+      </joint>
+      <link name='clearance_arm'>
+        <pose relative_to='segment_1'>0 -1 -8.1999999999999993 -1.5708 4.2351647362715017e-22 -3.1415853071795867</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00029999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00029999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.00029999999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://clearance_arm.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://clearance_arm.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <specular>0 0 1 1</specular>
+            <emissive>0 0 1 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>shoulder_mount_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>100</d_gain>
+        <topic>shoulder_mount_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>shoulder_mount_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>100</d_gain>
+        <topic>shoulder_mount_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>segment_4.2_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>50</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>100</d_gain>
+        <topic>segment_4.2_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>segment_4.2_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>50</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>100</d_gain>
+        <topic>segment_4.2_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>segment_3.2_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_3.2_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>segment_3.2_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_3.2_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>segment_2_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_2_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>segment_2_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_2_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>segment_1_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_1_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>segment_1_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>segment_1_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+      <plugin name='gz::sim::systems::JointController' filename='gz-sim-joint-controller-system'>
+        <joint_name>clearance_arm_joint</joint_name>
+        <initial_velocity>1</initial_velocity>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>clearance_arm_joint_vel</topic>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>clearance_arm_joint</joint_name>
+        <use_force_commands>true</use_force_commands>
+        <p_gain>10</p_gain>
+        <i_gain>1</i_gain>
+        <d_gain>10</d_gain>
+        <topic>clearance_arm_joint_pos</topic>
+        <cmd_max>1000</cmd_max>
+        <cmd_min>-1000</cmd_min>
+      </plugin>
+    </model>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+  </world>
+</sdf>
