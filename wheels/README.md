@@ -10,3 +10,12 @@
 4. [ENES100 Torque Calcs for a Motor](https://docs.google.com/spreadsheets/d/1mCtk_9g7qNtW8Typv6NiZEl2GAhqOmPYvU3oydtt6Oc/edit?usp=sharing)
 
 5. [NASA Terramechanics White Paper](https://ntrs.nasa.gov/api/citations/20220010732/downloads/Terramechanics_white_paper.pdf)
+
+
+## Size Selection
+
+![](images/total_mass_vs_diameter.png)
+
+![](images/total_mass_vs_width.png)
+
+![](images/total_mass_vs_grouser_height.png)
