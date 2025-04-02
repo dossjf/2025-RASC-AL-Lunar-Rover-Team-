@@ -44,12 +44,16 @@ def calc_contact_area(length_contact_patch):
 def calc_weight_on_wheel(wheel_location: WheelLocation, travel_type: TravelType):
     # Source 4
     if travel_type == TravelType.LEVEL_LINEAR:
-        return (p.mass_of_rover + p.mass_of_max_payload)*p.lunar_gravity/4
-    elif wheel_location == WheelLocation.FRONT:
-        return (p.mass_of_rover + p.mass_of_max_payload)*p.lunar_gravity/p.rover_length * (np.cos(np.deg2rad(p.max_slope))*p.center_of_mass_from_the_back - np.sin(np.deg2rad(p.max_slope))*p.outer_diameter)
-    elif wheel_location == WheelLocation.BACK:
-        front_wheel_weight = (p.mass_of_rover + p.mass_of_max_payload)*p.lunar_gravity/p.rover_length * (np.cos(np.deg2rad(p.max_slope))*p.center_of_mass_from_the_back - np.sin(np.deg2rad(p.max_slope))*p.outer_diameter)
-        return (p.mass_of_rover + p.mass_of_max_payload)*p.lunar_gravity*np.cos(np.deg2rad(p.max_slope)) - front_wheel_weight
+        if wheel_location == WheelLocation.FRONT:
+            return (p.mass_of_rover + p.mass_of_max_payload)/2*p.lunar_gravity * (p.center_of_mass_from_the_back/p.rover_length)
+        elif wheel_location == WheelLocation.BACK:
+            return (p.mass_of_rover + p.mass_of_max_payload)/2*p.lunar_gravity * (1 - p.center_of_mass_from_the_back/p.rover_length)
+    elif travel_type == TravelType.UPHILL:
+        if wheel_location == WheelLocation.FRONT:
+            return (p.mass_of_rover + p.mass_of_max_payload)/2*p.lunar_gravity/p.rover_length * np.cos(np.deg2rad(p.max_slope))*p.center_of_mass_from_the_back
+        elif wheel_location == WheelLocation.BACK:
+            front_wheel_weight = (p.mass_of_rover + p.mass_of_max_payload)/2*p.lunar_gravity/p.rover_length * np.cos(np.deg2rad(p.max_slope))*p.center_of_mass_from_the_back
+            return (p.mass_of_rover + p.mass_of_max_payload)/2*p.lunar_gravity*np.cos(np.deg2rad(p.max_slope)) - front_wheel_weight
     
 def calc_number_of_grousers():
     # Source 2 pg. 19-21
@@ -133,8 +137,9 @@ def calc_mass(material: Material):
     front_up_grouser_mass = calc_grouser_mass(material, WheelLocation.FRONT, TravelType.UPHILL)
     back_ll_grouser_mass = calc_grouser_mass(material, WheelLocation.BACK, TravelType.LEVEL_LINEAR)
     back_up_grouser_mass = calc_grouser_mass(material, WheelLocation.BACK, TravelType.UPHILL)
-
-    return 4*(max(front_ll_outer_shell_mass, front_up_outer_shell_mass, back_ll_outer_shell_mass, back_up_outer_shell_mass) + \
+    
+    # The multiply by 3 is to make the weight more normal. Our calculations are an underestimate
+    return 3*4*(max(front_ll_outer_shell_mass, front_up_outer_shell_mass, back_ll_outer_shell_mass, back_up_outer_shell_mass) + \
            max(front_ll_grouser_mass, front_up_grouser_mass, back_ll_grouser_mass, back_up_grouser_mass))
 
 def calc_outer_shell_mass(material: Material, wheel_location: WheelLocation, travel_type: TravelType):

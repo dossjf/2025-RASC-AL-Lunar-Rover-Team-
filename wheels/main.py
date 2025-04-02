@@ -9,7 +9,7 @@ import itertools
 
 # Define parameter ranges
 diameter_values = np.linspace(0.25, 1, int(76/4))
-width_values = np.linspace(0.05, 0.5, int(46/4))
+width_values = np.linspace(0.1, 0.5, int(46/4))
 grouser_height_values = np.linspace(0.005, 0.05, int(100/8))
 
 best_params = None
@@ -21,7 +21,7 @@ for diameter, width, grouser_height in itertools.product(diameter_values, width_
     p.width = width
     p.grouser_height = grouser_height
 
-    slip_values = np.linspace(0.01, 0.99, int(99/10))
+    slip_values = np.linspace(0.1, 0.3, int(99/10))
     found_valid_slip = False
 
     for slip in slip_values:
@@ -64,7 +64,7 @@ print(f"Minimum 4 Wheel + Battery Mass: {min_total_mass:.3f} kg")
 
 ## Force Power Calculations ##
 
-slip_values = np.linspace(0.001, .999, 999)
+slip_values = np.linspace(0.1, .3, 999)
 
 for slip in slip_values:
     p.slip_ratio = slip  # Update slip ratio in parameters
