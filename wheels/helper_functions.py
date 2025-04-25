@@ -98,7 +98,7 @@ def calc_bulldoze_resistance(wheel_location: WheelLocation, travel_type: TravelT
         return 0
 
     compressive_depth = calc_compressive_depth(wheel_location, travel_type)
-
+    # print(np.arccos(1- (2*compressive_depth/p.outer_diameter)))
     wheel_aoa = np.arccos(1 - (2*compressive_depth/p.outer_diameter)) # alpha
     length_of_ruptured_soil =  compressive_depth * np.tan(np.pi/4 - np.deg2rad(p.soil_angle_of_internal_friction/2))**2 # l0
     

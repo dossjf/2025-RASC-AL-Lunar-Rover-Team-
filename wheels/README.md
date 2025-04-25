@@ -15,6 +15,8 @@
 
 7. [Parametric Study and Design Guidelines for Rigid Wheels for Planetary Rovers](https://www.researchgate.net/publication/336185520_Parametric_study_and_design_guidelines_for_rigid_wheels_for_planetary_rovers)
 
+8. [Development and experimental validation of an improved pressure-sinkage model for small-wheeled vehicles on dilative, deformable terrain](https://www.sciencedirect.com/science/article/abs/pii/S002248981300092X)
+
 
 ## Notes
 
