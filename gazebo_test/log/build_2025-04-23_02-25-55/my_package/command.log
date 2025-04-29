@@ -1,0 +1,6 @@
+Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/leonello20/gazebo_test/src/my_package -DCMAKE_INSTALL_PREFIX=/home/leonello20/gazebo_test/install/my_package
+Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/leonello20/gazebo_test/src/my_package -DCMAKE_INSTALL_PREFIX=/home/leonello20/gazebo_test/install/my_package
+Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/my_package -- -j4 -l4
+Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/my_package -- -j4 -l4
+Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/my_package
+Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/my_package
