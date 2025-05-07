@@ -6,7 +6,7 @@ Id	Description	Qty	Unit	Designators
 5	Connector, 2 pins	2		DriveSwitch, MainSwitch
 6	Connector, Bullet, Male, 2 pins	1		CranePitch
 7	Connector, Dupont, female, 3 pins	7		CraneElbow, CraneExtension, CraneYaw, SteerBL, SteerBR, SteerFL, SteerFR
-8	Connector, JST-XH, Female, 37 pins	1		Main
+8	Connector, JST-XH, Female, 39 pins	1		Main
 9	Connector, Screw Terminal, Female, 4 pins	1		BuckConverter
 10	Connector, Screw Terminal/Dupont, Female, 12 pins	1		L298N
 11	Connector, TBD, Female, 2 pins	1		Battery

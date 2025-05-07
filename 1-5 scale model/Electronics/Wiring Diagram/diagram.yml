@@ -52,7 +52,7 @@ connectors:
   Main:
     type: JST-XH
     subtype: Female
-    pincount: 37
+    pincount: 39
     pinlabels: [+5V, GND, # 1,2
                 SteerFLGND, SteerFLPWR, SteerFLSig, # 3,4,5
                 SteerFRGND, SteerFRPWR, SteerFRSig, # 6,7,8
@@ -67,6 +67,7 @@ connectors:
                 Light2, Light2GND, # 32,33
                 Light3, Light3GND, # 34,35
                 Light4, Light4GND, # 36,37
+                BatteryIn, GND, # 38,39
                 ]
 
     image:
@@ -264,3 +265,6 @@ connections:
   - L298N: [7,8]
   - W18: [1,2]
   - MotorBR: [1,2]
+-
+  - W11: [1,2]
+  - Main: [38,39]
