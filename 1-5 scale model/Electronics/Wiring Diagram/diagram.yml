@@ -34,8 +34,8 @@ connectors:
   L298N:
     type: Screw Terminal/Dupont
     subtype: Female
-    pincount: 10
-    pinlabels: [+12V, GND, in1, in2, in3, in4, out1, out2, out3, out4]
+    pincount: 12
+    pinlabels: [+12V, GND, ena, in1, in2, in3, in4, enb, out1, out2, out3, out4]
     image:
       src: Images/L298N.png
       height: 100
@@ -52,39 +52,26 @@ connectors:
   Main:
     type: JST-XH
     subtype: Female
-    pincount: 38
+    pincount: 37
     pinlabels: [+5V, GND, # 1,2
                 SteerFLGND, SteerFLPWR, SteerFLSig, # 3,4,5
                 SteerFRGND, SteerFRPWR, SteerFRSig, # 6,7,8
                 SteerBLGND, SteerBLPWR, SteerBLSig, # 9,10,11
                 SteerBRGND, SteerBRPWR, SteerBRSig, # 12,13,14
-                L298NIN1, L298NIN2, # 15,16
-                CranePitchGND, CranePitchPWR, CranePitchSig, # 17,18,19
-                CraneYawGND, CraneYawPWR, CraneYawSig, # 20,21,22
-                CraneElbowGND, CraneElbowPWR, CraneElbowSig, # 23,24,25
-                CraneExtensionGND, CraneExtensionPWR, CraneExtensionSig, # 26,27,28
-                CraneLimitSwitch, CraneLimitSwitchGND, # 29,30
-                Ligth1, Light1GND, # 31,32
-                Ligth2, Light2GND, # 33,34
-                Ligth3, Light3GND, # 35,36
-                Ligth4, Light4GND, # 37,38
+                L298NIN1, L298NIN2, L298NENA, # 15,16,17
+                CranePitchGND, CranePitchPWR, CranePitchSig, # 18,19,20
+                CraneYawGND, CraneYawPWR, CraneYawSig, # 21,22,23
+                CraneElbowGND, CraneElbowPWR, CraneElbowSig, # 24,25,26
+                CraneExtensionGND, CraneExtensionPWR, CraneExtensionSig, # 27,28,29
+                Light1, Light1GND, # 30,31
+                Light2, Light2GND, # 32,33
+                Light3, Light3GND, # 34,35
+                Light4, Light4GND, # 36,37
                 ]
 
     image:
       src: Images/main.png
       height: 100
-  
-  MainPower:
-    type: JST-XH
-    subtype: Female
-    pincount: 2
-    pinlabels: [5V, GND]
-
-  MainL298N:
-    type: JST-XH
-    subtype: Female
-    pincount: 4
-    pinlabels: [in1, in2, in3, in4]
   
   SteerFL:
     <<: *con_Servo
@@ -110,7 +97,13 @@ connectors:
   CraneYaw:
     <<: *con_Servo
   CranePitch:
-    <<: *con_Servo
+    type: Bullet
+    subtype: Male
+    pincount: 2
+    pinlabels: [MotorVIN, MotorGND]
+    image:
+      src: Images/pitch_motor.png
+      height: 100
   CraneExtension:
     <<: *con_Servo
   CraneElbow:
@@ -130,11 +123,20 @@ connectors:
   MotorBR:
     <<: *con_motor
 
+  CranePitchDriver:
+    type: XT30, Dupont, Bullet
+    subtype: Female
+    pincount: 7
+    pinlabels: [VIN, GND, SigGND, SigPWR, Sig, MotorVIN, MotorGND]
+    image:
+      src: Images/pitch_motor_driver.png
+      height: 100
+
 
 cables:
   W1:
     color_code: DIN
-    wirecount: 2
+    wirecount: 3
   W2:
     <<: *wire_servo
   W3:
@@ -171,12 +173,14 @@ cables:
     <<: *wire_power
   W18:
     <<: *wire_power
+  W19:
+    <<: *wire_power
 
 connections:
 -
-  - Main: [15,16]
-  - W1: [1,2]
-  - L298N: [3,4]
+  - Main: [15,16,17]
+  - W1: [1,2,3]
+  - L298N: [4,5,3]
 -
   - Main: [3,4,5]
   - W2: [1,2,3]
@@ -194,25 +198,34 @@ connections:
   - W5: [1,2,3]
   - SteerBR: [1,2,3]
 -
-  - Main: [20,21,22]
+  - Main: [21,22,23]
   - W6: [1,2,3]
   - CraneYaw: [1,2,3]
 -
-  - Main: [17,18,19]
+  - Main: [18,19,20]
   - W7: [1,2,3]
-  - CranePitch: [1,2,3]
+  - CranePitchDriver: [3,4,5]
 -
-  - Main: [26,27,28]
+  - W14: [1,2]
+  - CranePitchDriver: [1,2]
+-
+  - CranePitchDriver: [6,7]
+  - W19: [1,2]
+  - CranePitch: [1,2]
+-
+  - Main: [27,28,29]
   - W8: [1,2,3]
   - CraneExtension: [1,2,3]
 -
-  - Main: [23,24,25]
+  - Main: [24,25,26]
   - W9: [1,2,3]
   - CraneElbow: [1,2,3]
 -
   - Battery: [1]
   - W10: [1]
   - MainSwitch: [1]
+-
+  - MainSwitch: [2]
   - W11: [1]
   - BuckConverter: [1]
 -
@@ -227,6 +240,8 @@ connections:
   - Battery: [1]
   - W13: [1]
   - DriveSwitch: [1]
+-
+  - DriveSwitch: [2]
   - W14: [1]
   - L298N: [1]
 -

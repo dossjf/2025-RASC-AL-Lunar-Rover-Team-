@@ -1,12 +1,14 @@
 Id	Description	Qty	Unit	Designators
 1	Cable, 1 x 14 AWG	0	m	W10, W13
-2	Cable, 2 wires	0	m	W1
-3	Cable, 2 x 18 AWG	0	m	W11, W12, W14, W15, W16, W17, W18
+2	Cable, 2 x 18 AWG	0	m	W11, W12, W14, W15, W16, W17, W18, W19
+3	Cable, 3 wires	0	m	W1
 4	Cable, 3 x 22 AWG	0	m	W2, W3, W4, W5, W6, W7, W8, W9
 5	Connector, 2 pins	2		DriveSwitch, MainSwitch
-6	Connector, Dupont, female, 3 pins	8		CraneElbow, CraneExtension, CranePitch, CraneYaw, SteerBL, SteerBR, SteerFL, SteerFR
-7	Connector, JST-XH, Female, 38 pins	1		Main
-8	Connector, Screw Terminal, Female, 4 pins	1		BuckConverter
-9	Connector, Screw Terminal/Dupont, Female, 10 pins	1		L298N
-10	Connector, TBD, Female, 2 pins	1		Battery
-11	Connector, leads, 2 pins	4		MotorBL, MotorBR, MotorFL, MotorFR
+6	Connector, Bullet, Male, 2 pins	1		CranePitch
+7	Connector, Dupont, female, 3 pins	7		CraneElbow, CraneExtension, CraneYaw, SteerBL, SteerBR, SteerFL, SteerFR
+8	Connector, JST-XH, Female, 37 pins	1		Main
+9	Connector, Screw Terminal, Female, 4 pins	1		BuckConverter
+10	Connector, Screw Terminal/Dupont, Female, 12 pins	1		L298N
+11	Connector, TBD, Female, 2 pins	1		Battery
+12	Connector, XT30, Dupont, Bullet, Female, 7 pins	1		CranePitchDriver
+13	Connector, leads, 2 pins	4		MotorBL, MotorBR, MotorFL, MotorFR
