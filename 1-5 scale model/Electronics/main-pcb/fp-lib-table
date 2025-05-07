@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "1-5 scale boards")(type "KiCad")(uri "${KIPRJMOD}/1-5 scale boards.pretty")(options "")(descr ""))
+)

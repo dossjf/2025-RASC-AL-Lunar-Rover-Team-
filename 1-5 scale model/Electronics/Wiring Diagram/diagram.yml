@@ -1,0 +1,237 @@
+templates: # defining templates to be used later on
+  - &con_mainServo
+    type: JST-XH
+    subtype: female
+    pincount: 3
+    pinlabels: [GND, +5V, Signal]
+  - &con_Servo
+    type: Dupont
+    subtype: female
+    pincount: 3
+    pinlabels: [GND, +5V, Signal]
+  - &wire_servo
+    gauge: 22 AWG
+    colors: [BK, RD, YE]
+  - &wire_power
+    gauge: 18 AWG
+    colors: [RD, BK]
+  - &con_switch
+    pincount: 2
+    pinlabels: [VIN, VOUT]
+    image:
+      src: Images/switch.png
+      height: 100
+  - &con_motor
+    type: leads
+    pincount: 2
+    pinlabels: [VIN, GND]
+    image:
+      src: Images/motor.png
+      height: 100
+
+connectors:
+  Battery:
+    type: TBD
+    subtype: Female
+    pincount: 2
+    pinlabels: [VIN, GND]
+  
+  L298N:
+    type: Screw Terminal/Dupont
+    subtype: Female
+    pincount: 10
+    pinlabels: [+12V, GND, in1, in2, in3, in4, out1, out2, out3, out4]
+    image:
+      src: Images/L298N.png
+      height: 100
+
+  BuckConverter:
+    type: Screw Terminal
+    subtype: Female
+    pincount: 4
+    pinlabels: [VIN, GND, 5V, GND1]
+    image:
+      src: Images/buck_converter.png
+      height: 100
+
+  MainPower:
+    type: JST-XH
+    subtype: Female
+    pincount: 2
+    pinlabels: [5V, GND]
+
+  MainL298N:
+    type: JST-XH
+    subtype: Female
+    pincount: 4
+    pinlabels: [in1, in2, in3, in4]
+
+  MainSteerFL:
+    <<: *con_mainServo
+  MainSteerFR:
+    <<: *con_mainServo
+  MainSteerBL:
+    <<: *con_mainServo
+  MainSteerBR:
+    <<: *con_mainServo
+  
+  SteerFL:
+    <<: *con_Servo
+  SteerFR:
+    <<: *con_Servo
+  SteerBL:
+    <<: *con_Servo
+  SteerBR:
+    <<: *con_Servo
+
+  MainCraneYaw:
+    <<: *con_mainServo
+  MainCranePitch:
+    <<: *con_mainServo
+  MainCraneExtension:
+    <<: *con_mainServo
+  MainCraneElbow:
+    <<: *con_mainServo
+
+  CraneYaw:
+    <<: *con_Servo
+  CranePitch:
+    <<: *con_Servo
+  CraneExtension:
+    <<: *con_Servo
+  CraneElbow:
+    <<: *con_Servo
+
+  MainSwitch:
+    <<: *con_switch
+  DriveSwitch:
+    <<: *con_switch
+
+  MotorFL:
+    <<: *con_motor
+  MotorFR:
+    <<: *con_motor
+  MotorBL:
+    <<: *con_motor
+  MotorBR:
+    <<: *con_motor
+
+
+cables:
+  W1:
+    color_code: DIN
+    wirecount: 4
+  W2:
+    <<: *wire_servo
+  W3:
+    <<: *wire_servo
+  W4:
+    <<: *wire_servo
+  W5:
+    <<: *wire_servo
+  W6:
+    <<: *wire_servo
+  W7:
+    <<: *wire_servo
+  W8:
+    <<: *wire_servo
+  W9:
+    <<: *wire_servo
+  W10:
+    gauge: 14 AWG
+    colors: [RD]
+  W11:
+    <<: *wire_power
+  W12:
+    <<: *wire_power
+  W13:
+    gauge: 14 AWG
+    colors: [RD]
+  W14:
+    <<: *wire_power
+  W15:
+    <<: *wire_power
+  W16:
+    <<: *wire_power
+  W17:
+    <<: *wire_power
+  W18:
+    <<: *wire_power
+
+connections:
+-
+  - MainL298N: [1,2,3,4]
+  - W1: [1,2,3,4]
+  - L298N: [3,4,5,6]
+-
+  - MainSteerFL: [1,2,3]
+  - W2: [1,2,3]
+  - SteerFL: [1,2,3]
+-
+  - MainSteerFR: [1,2,3]
+  - W3: [1,2,3]
+  - SteerFR: [1,2,3]
+-
+  - MainSteerBL: [1,2,3]
+  - W4: [1,2,3]
+  - SteerBL: [1,2,3]
+-
+  - MainSteerBR: [1,2,3]
+  - W5: [1,2,3]
+  - SteerBR: [1,2,3]
+-
+  - MainCraneYaw: [1,2,3]
+  - W6: [1,2,3]
+  - CraneYaw: [1,2,3]
+-
+  - MainCranePitch: [1,2,3]
+  - W7: [1,2,3]
+  - CranePitch: [1,2,3]
+-
+  - MainCraneExtension: [1,2,3]
+  - W8: [1,2,3]
+  - CraneExtension: [1,2,3]
+-
+  - MainCraneElbow: [1,2,3]
+  - W9: [1,2,3]
+  - CraneElbow: [1,2,3]
+-
+  - Battery: [1]
+  - W10: [1]
+  - MainSwitch: [1]
+  - W11: [1]
+  - BuckConverter: [1]
+-
+  - Battery: [2]
+  - W11: [2]
+  - BuckConverter: [2]
+-
+  - BuckConverter: [3,4]
+  - W12: [1,2]
+  - MainPower: [1,2]
+-
+  - Battery: [1]
+  - W13: [1]
+  - DriveSwitch: [1]
+  - W14: [1]
+  - L298N: [1]
+-
+  - Battery: [2]
+  - W14: [2]
+  - L298N: [2]
+-
+  - L298N: [7,8]
+  - W15: [1,2]
+  - MotorFL: [1,2]
+-
+  - L298N: [7,8]
+  - W16: [1,2]
+  - MotorFR: [1,2]
+-
+  - L298N: [7,8]
+  - W17: [1,2]
+  - MotorBL: [1,2]
+-
+  - L298N: [7,8]
+  - W18: [1,2]
+  - MotorBR: [1,2]
