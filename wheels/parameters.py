@@ -1,6 +1,6 @@
 # Vehicle Properties
-mass_of_rover = 500 # [kg]
-mass_of_max_payload = 300 # [kg]
+mass_of_rover = 5 # [kg]
+mass_of_max_payload = 1 # [kg]
 max_speed = .5 # [m/s]
 min_speed_at_max_slope = .1 # [m/s]
 safety_factor = 1.5 # [~]
@@ -9,15 +9,15 @@ rover_length = 2.5 # [m]
 center_of_mass_from_the_back = rover_length/3 # [m]
 
 # Wheel Properties
-outer_diameter = .75 # [m]
-width = .15 # [m]
+outer_diameter = .75/6 # [m]
+width = .15/6 # [m]
 slip_ratio = .2 # [~] (0,1) exclusive bounds
 minimum_outer_thickness = .001 # [m]
 deformation_localization_factor = .1 # [~]
-grouser_height = .05 # [m]
+grouser_height = .05/6 # [m]
 
 # Constants
-lunar_gravity = 1.62 # [m/s^2]
+lunar_gravity = 9.81 # [m/s^2]
 
 # Lunar Regolith Properties
 sinkage_constant = 1 # [~] [1 pg.22] (n) 

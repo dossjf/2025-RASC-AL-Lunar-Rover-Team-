@@ -7,6 +7,8 @@ import itertools
 
 ### Size Calculations ###
 
+print(calc_number_of_grousers())
+
 # Define parameter ranges
 diameter_values = np.linspace(0.75, .76, 1)
 width_values = np.linspace(0.15, 0.5, int(46/4))

@@ -99,15 +99,19 @@ drawbar_line, = plt.plot(normalized_width_vals, drawbar_pull_results, label=f"Be
 plt.axvline(min_width / p.outer_diameter, linestyle="--", linewidth=1, label="Terzaghi Minimum Soil Bearing Capacity (Dry Sand)", color=drawbar_line.get_color())
 
 # Label the axes and title
-plt.xlabel("Normalized Width")
-plt.ylabel("Drawbar Pull [N]")
-plt.title(f"Drawbar Pull vs Normalized Width \n(Diameter={p.outer_diameter}m, Grouser Height={p.grouser_height}m)")
+plt.xlabel("Normalized Width", fontsize=18)
+plt.ylabel("Drawbar Pull [N]", fontsize=18)
+plt.title(f"Drawbar Pull vs Normalized Width \n(Diameter={p.outer_diameter}m, Grouser Height={p.grouser_height}m)", fontsize=20)
+
+# Increase tick label size
+plt.xticks(fontsize=16)
+plt.yticks(fontsize=16)
 
 # Display the legend
-plt.legend()
+plt.legend(fontsize=12)
 
 # Add gridlines for readability
 plt.grid(True)
 
 # Save the combined plot
-plt.savefig("images/test_drawbar_pull_vs_normalized_width.png", dpi=300)
+plt.savefig("images/test_drawbar_pull_vs_normalized_width.png", dpi=500)
