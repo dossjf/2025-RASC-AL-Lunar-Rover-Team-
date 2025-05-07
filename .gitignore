@@ -1,2 +1,13 @@
 crew_systems/workspace_analysis/data
 
+**/.DS_Store
+
+# KiCad autosave files
+*.bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*-save.kicad_sch
+*-save.kicad_pcb
+*-rescue.*
+**/#auto_saved_files#
+**/_autosave*
