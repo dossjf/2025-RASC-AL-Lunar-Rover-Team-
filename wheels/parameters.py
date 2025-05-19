@@ -17,7 +17,7 @@ deformation_localization_factor = .1 # [~]
 grouser_height = .05/6 # [m]
 
 # Constants
-lunar_gravity = 9.81 # [m/s^2]
+lunar_gravity = 1.62 # [m/s^2]
 
 # Lunar Regolith Properties
 sinkage_constant = 1 # [~] [1 pg.22] (n) 

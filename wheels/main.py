@@ -10,8 +10,8 @@ import itertools
 print(calc_number_of_grousers())
 
 # Define parameter ranges
-diameter_values = np.linspace(0.75, .76, 1)
-width_values = np.linspace(0.15, 0.5, int(46/4))
+diameter_values = np.linspace(0.25, .75, int(75-25))
+width_values = np.linspace(0.1, 0.5, int(46/4))
 grouser_height_values = np.linspace(0.005, 0.05, int(100/8))
 
 best_params = None
@@ -23,7 +23,7 @@ for diameter, width, grouser_height in itertools.product(diameter_values, width_
     p.width = width
     p.grouser_height = grouser_height
 
-    slip_values = np.linspace(0.1, 0.5, 20)
+    slip_values = np.linspace(0.1, 0.75, 20)
     found_valid_slip = False
 
     for slip in slip_values:

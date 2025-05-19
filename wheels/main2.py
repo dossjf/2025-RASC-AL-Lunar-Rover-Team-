@@ -8,7 +8,7 @@ import itertools
 ### Size Calculations ###
 
 # Define parameter ranges
-diameter_values = np.linspace(0.25, 1, 50)
+diameter_values = np.linspace(0.25, .75, 50)
 
 best_params = None
 min_wheel_mass = float('inf')
