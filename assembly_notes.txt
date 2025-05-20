@@ -1,0 +1,5 @@
+Controller Assembly Guide:
+	Electronics for most systems are fairly straight forward. PWM extension leads are soldered onto the arm servos and routed in such a way as not to snag. These are plugged into available PWM channels of the reciever and the system is programmed accordingly.
+	For the handgrip, change the board_pins.h definition file in %appdata%/Roaming/arduino15/packages... for the ESP32S3 Dev board to look for SDA on Pin 1 and SCL on Pin 2. Pins 3, 4 and 5 and go to the buttons and the other side of the buttons goes to ground.
+	5V on all systems comes from the output of the boost converter and ground is again common.
+	Using an external antenna is not necessarily needed but you'll have to desolder the board-mounted connector and use as short a length of wire as possible or use grounded 50 ohm coax.
