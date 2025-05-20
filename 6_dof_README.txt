@@ -1,0 +1,2 @@
+In lieu of real documentation (which in my experience takes almost as long as the actual prototyping itself) I've thrown together a pdf of all the random sketches and scribbles i used when making the arm.
+None of it is probably particularly helpful except the handcontroller wiring diagram and the reciever and transmitter MAC addresses.
