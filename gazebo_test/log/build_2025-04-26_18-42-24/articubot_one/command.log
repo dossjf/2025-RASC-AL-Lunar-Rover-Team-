@@ -1,0 +1,4 @@
+Invoking command in '/home/leonello20/gazebo_test/build/articubot_one': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/articubot_one -- -j4 -l4
+Invoked command in '/home/leonello20/gazebo_test/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/articubot_one -- -j4 -l4
+Invoking command in '/home/leonello20/gazebo_test/build/articubot_one': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/articubot_one
+Invoked command in '/home/leonello20/gazebo_test/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/articubot_one

@@ -7,9 +7,11 @@ import itertools
 
 ### Size Calculations ###
 
+print(calc_number_of_grousers())
+
 # Define parameter ranges
-diameter_values = np.linspace(0.25, 1, int(76/4))
-width_values = np.linspace(0.05, 0.5, int(46/4))
+diameter_values = np.linspace(0.25, .75, int(75-25))
+width_values = np.linspace(0.1, 0.5, int(46/4))
 grouser_height_values = np.linspace(0.005, 0.05, int(100/8))
 
 best_params = None
@@ -21,7 +23,7 @@ for diameter, width, grouser_height in itertools.product(diameter_values, width_
     p.width = width
     p.grouser_height = grouser_height
 
-    slip_values = np.linspace(0.01, 0.99, int(99/10))
+    slip_values = np.linspace(0.1, 0.75, 20)
     found_valid_slip = False
 
     for slip in slip_values:
@@ -64,7 +66,7 @@ print(f"Minimum 4 Wheel + Battery Mass: {min_total_mass:.3f} kg")
 
 ## Force Power Calculations ##
 
-slip_values = np.linspace(0.001, .999, 999)
+slip_values = np.linspace(0.1, .5, 999)
 
 for slip in slip_values:
     p.slip_ratio = slip  # Update slip ratio in parameters
@@ -134,7 +136,7 @@ mass_inconel = calc_mass(Inconel_718)
 
 # Print results in a structured format
 print("\n--- Material Mass Calculations ---\n")#
-print(f"{'Material':<20} | {'Density (kg/m³)':<20} | {'Mass (kg)'}")
+print(f"{'Material':<20} | {'Density (kg/m³)':<20} | {'Mass 4 Wheel (kg)'}")
 print("-" * 60)
 print(f"{Ti_6Al_4V.name:<20} | {Ti_6Al_4V.density:<20.1f} | {mass_ti:.3f}")
 print(f"{Stainless_Steel.name:<20} | {Stainless_Steel.density:<20.1f} | {mass_steel:.3f}")

@@ -1,0 +1,9 @@
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/uninstall.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/my_package_uninstall.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/test.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/edit_cache.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/rebuild_cache.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/list_install_components.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/install.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/install/local.dir
+/home/leonello20/gazebo_test/build/my_package/CMakeFiles/install/strip.dir

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro = 'http://www.ros.org/wiki/xacro'>
+
+  <material name = "red">
+    <color rgba = "1 0 0 1"/>
+  </material>
+
+  <material name = "green">
+    <color rgba = "0 1 0 1"/>
+  </material>
+
+  <material name = "blue">
+    <color rgba = "0 0 1 1"/>
+  </material>
+
+  <material name = "white">
+    <color rgba = "1 1 1 1"/>
+  </material>
+
+  <material name = "black">
+    <color rgba = "0 0 0 1"/>
+  </material>
+
+  <light name="sun" type="directional">
+    <pose>0 0 10 0 0 0</pose>
+    <diffuse>0.8 0.8 0.8 1</diffuse>
+    <specular>0.2 0.2 0.2 1</specular>
+    <direction>-0.5 0.1 -0.9</direction>
+  </light>
+
+<link name="chassis">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.0041"/>
+    <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 3.1416"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Chassis.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+  <material name="my_red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Chassis.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<joint name = 'right_front_suspension_assembly_joint' type = 'fixed'>
+      <parent link = 'chassis'/>
+      <child link = 'right_front_suspension_assembly'/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="right_front_suspension_assembly">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.0434"/>
+    <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03"/>
+  </inertial>
+  <collision name="collision">
+    <origin xyz="0 -50 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Suspension_Assembly.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+  </collision>
+  <visual name="visual">
+    <origin xyz="0 -50 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Suspension_Assembly.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+        <material name="red"/>
+  </visual>
+</link>
+
+<joint name="right_front_wheel_joint" type="revolute">
+  <parent link="right_front_suspension_assembly"/>
+  <child link="right_front_wheel"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <axis xyz="ax ay az"/>
+  <limit lower="-1000" upper="1000" effort="100" velocity="1"/>
+</joint>
+
+<link name="right_front_wheel">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.0434"/>
+    <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03"/>
+  </inertial>
+  <collision name="collision">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Wheel_Adjustable.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+  </collision>
+  <visual name="visual">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://my_package/meshes/Wheel_Adjustable.stl" scale="0.1 0.1 0.1"/>
+    </geometry>
+        <material name="green"/>
+  </visual>
+</link>
+
+</robot>

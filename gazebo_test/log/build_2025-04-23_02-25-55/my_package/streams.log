@@ -1,0 +1,42 @@
+[0.014s] Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/leonello20/gazebo_test/src/my_package -DCMAKE_INSTALL_PREFIX=/home/leonello20/gazebo_test/install/my_package
+[0.233s] -- The C compiler identification is GNU 11.4.0
+[0.825s] -- The CXX compiler identification is GNU 11.4.0
+[1.234s] -- Detecting C compiler ABI info
+[1.398s] -- Detecting C compiler ABI info - done
+[1.403s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.405s] -- Detecting C compile features
+[1.405s] -- Detecting C compile features - done
+[1.408s] -- Detecting CXX compiler ABI info
+[1.578s] -- Detecting CXX compiler ABI info - done
+[1.582s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.583s] -- Detecting CXX compile features
+[1.583s] -- Detecting CXX compile features - done
+[1.588s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.680s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.756s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.812s] -- Added test 'lint_cmake' to check CMake code style
+[1.813s] -- Added test 'xmllint' to check XML markup files
+[1.814s] -- Configuring done
+[1.816s] -- Generating done
+[1.817s] -- Build files have been written to: /home/leonello20/gazebo_test/build/my_package
+[1.821s] Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/leonello20/gazebo_test/src/my_package -DCMAKE_INSTALL_PREFIX=/home/leonello20/gazebo_test/install/my_package
+[1.823s] Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/my_package -- -j4 -l4
+[1.843s] Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/leonello20/gazebo_test/build/my_package -- -j4 -l4
+[1.844s] Invoking command in '/home/leonello20/gazebo_test/build/my_package': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/my_package
+[1.847s] -- Install configuration: ""
+[1.847s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/ament_index/resource_index/package_run_dependencies/my_package
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/ament_index/resource_index/parent_prefix_path/my_package
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/environment/ament_prefix_path.sh
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/environment/ament_prefix_path.dsv
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/environment/path.sh
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/environment/path.dsv
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/local_setup.bash
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/local_setup.sh
+[1.848s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/local_setup.zsh
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/local_setup.dsv
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/package.dsv
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/ament_index/resource_index/packages/my_package
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/cmake/my_packageConfig.cmake
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/cmake/my_packageConfig-version.cmake
+[1.849s] -- Installing: /home/leonello20/gazebo_test/install/my_package/share/my_package/package.xml
+[1.850s] Invoked command in '/home/leonello20/gazebo_test/build/my_package' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/leonello20/gazebo_test/build/my_package

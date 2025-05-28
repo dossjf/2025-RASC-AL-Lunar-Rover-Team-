@@ -1,0 +1,48 @@
+Component List:
+	Arm:
+		~1m Sch40 1/2" PVC
+		~250g PLA+
+			I used duramic.
+		Various M5 and M4 fasteners.
+		~25x M3x30 Socket Head Screws + ~50x M3x30 Washers + ~25x M3 Screws.
+		2x MG90S Servos
+			https://www.aliexpress.us/item/2251832493709701.html
+		1x DS5160 Servo
+			https://www.aliexpress.us/item/3256805490643312.html
+		4x MG996R Servos
+			https://www.aliexpress.us/item/3256806846496588.html - 4pcs
+		x45 .177 (4.5mm) Steel BBs
+			I used daisy brand BBs.
+		x9 10x15x4 Skateboard Bearings
+			https://www.aliexpress.us/item/3256807482131308.html - 10x15x4
+	Hand Controller:
+		5x M3x25 Socket Head Screws + 5x M3 Nuts + 10x M3 Washers
+		MPU6050 IMU Breakout Board
+			https://www.aliexpress.us/item/3256805094964838.html?
+		0.96" 128x64 OLED
+			https://www.aliexpress.us/item/2251832770994631.html
+		3x 6mm Momentary Pushbuttons
+			https://www.aliexpress.us/item/2251832725948381.html - 6mmx6mmx6mm
+		ESP32S3 Super Mini Dev Board
+			https://www.aliexpress.us/item/3256806220223726.html
+		18650 Single Cell Holder and Battery
+			https://www.aliexpress.us/item/3256802296002737.html - Single Slot
+		3.3->5V Boost Converter
+			https://www.aliexpress.us/item/3256806000230097.html
+		SPST Slide Switch
+			https://www.aliexpress.us/item/3256803752541650.html - SS-12D00G 4mm
+		20 AWG Wire ~0.5m
+	Power Brick:
+		4x M3x25 Socket Head Screws + 4x M3 Nuts + 8x M3 Washers
+		Heltec ESP32 V3 Devboard.
+			https://www.aliexpress.us/item/3256805094964838.html?
+			(Not actually the product used. Another ESP32 dev board should work fine as long as it has a static MAC address and 7 PWM channels.)
+		PWM Extension Wires
+			(20 AWG wires with soldered header pins were used here).
+		XT-60 Power Connector Male + Female
+			https://www.aliexpress.us/item/3256807290271957.html
+		14 AWG Power Wire ~2m
+		12V -> 5V DC-DC Buck Converter (Rated 15A)
+			https://www.aliexpress.us/item/2251832470824679.html
+			(I used two of these in series).
+		
