@@ -118,8 +118,9 @@ zlim([-3,3]);
 axis equal
 
 figure
-[values, centers] = hist3([transpose(sawyer_ws.full.cartx), transpose(sawyer_ws.full.carty)],[51 51]);
+[values, centers] = hist3([transpose(sawyer_ws.full.cartx), transpose(sawyer_ws.full.carty)],[101 101]);
 imagesc(centers{:}, values.')
+colormap(jet(numel(values)))
 c = colorbar;
 xlabel(c, "Number of Repeated Positions")
 title("Density Plot of Repeated Cartesian Positions With Different Joint Configuration")
@@ -131,8 +132,9 @@ hold on
 show(sawyer, sawyerConfig);
 
 figure
-[values, centers] = hist3([transpose(sawyer_ws.full.cartx), transpose(sawyer_ws.full.cartz)],[51 51]);
+[values, centers] = hist3([transpose(sawyer_ws.full.cartx), transpose(sawyer_ws.full.cartz)],[101 101]);
 imagesc(centers{:}, values.')
+colormap(jet(numel(values)))
 c = colorbar;
 xlabel(c, "Number of Repeated Positions")
 title("Density Plot of Repeated Cartesian Positions With Different Joint Configuration")
@@ -151,8 +153,9 @@ sawyerConfig(7).JointPosition = 0;
 show(sawyer_xz, sawyerConfig);
 
 figure
-[values, centers] = hist3([transpose(sawyer_ws.full.carty), transpose(sawyer_ws.full.cartz)],[51 51]);
+[values, centers] = hist3([transpose(sawyer_ws.full.carty), transpose(sawyer_ws.full.cartz)],[101 101]);
 imagesc(centers{:}, values.')
+colormap(jet(numel(values)))
 c = colorbar;
 xlabel(c, "Number of Repeated Positions")
 title("Density Plot of Repeated Cartesian Positions With Different Joint Configuration")

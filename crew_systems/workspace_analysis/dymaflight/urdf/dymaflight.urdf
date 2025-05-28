@@ -166,5 +166,14 @@
         <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
     </joint>
 
+    <link name="ee_pos"/>
+    
+    <joint name="fixed_j8" type="fixed">
+        <parent link="tool_roll" />
+        <child link="ee_pos" />
+        <origin xyz="0 0 0.314325" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+    </joint>
+
 </robot>
 

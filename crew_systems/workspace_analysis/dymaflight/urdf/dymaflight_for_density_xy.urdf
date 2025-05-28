@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<robot name="dymaflight">
+    
+    <link name="ground"/>
+    <link name="dyma_base_link">
+    </link>
+
+    <joint name="world_rotate" type="fixed">
+        <parent link="ground"/>
+        <child link="dyma_base_link"/>
+        <origin xyz="0 0 0" rpy="0 -1.5708 0"/>
+    </joint>
+
+    <link name="shld_yaw">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_yaw.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_yaw.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint1" type="revolute">
+        <parent link="dyma_base_link" />
+        <child link="shld_yaw" />
+        <origin xyz="0 0 0.18161" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="shld_ptch">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint2" type="revolute">
+        <parent link="shld_yaw" />
+        <child link="shld_ptch" />
+
+        <origin xyz="0 0 0" rpy="-1.5708 0 3.14159 " />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="shld_roll">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/shld_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint3" type="revolute">
+        <parent link="shld_ptch" />
+        <child link="shld_roll" />
+        <origin xyz="0 -0.430022 0" rpy="1.5708 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="elbw_ptch">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/elbw_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/elbw_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint4" type="revolute">
+        <parent link="shld_roll" />
+        <child link="elbw_ptch" />
+        <origin xyz="0.041402 0 0" rpy="-1.5708 -3.14159 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="wrst_roll">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/wrst_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/wrst_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint5" type="revolute">
+        <parent link="elbw_ptch" />
+        <child link="wrst_roll" />
+        <origin xyz="0.041402 0.37084 0" rpy="-1.5708 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="wrst_ptch">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/wrst_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/wrst_ptch.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint6" type="revolute">
+        <parent link="wrst_roll" />
+        <child link="wrst_ptch" />
+        <origin xyz="0.033274 -0.007366 0" rpy="-1.5708 0 3.14159" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+    <link name="tool_roll">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/tool_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+               <mesh filename="package://nbv/urdf/meshes/tool_roll.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint7" type="revolute">
+        <parent link="wrst_ptch" />
+        <child link="tool_roll" />
+        <origin xyz="0.033274 0 0" rpy="1.5708 0 0" />
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.25" lower="-3.14159" upper="3.14159" />
+    </joint>
+
+</robot>
+

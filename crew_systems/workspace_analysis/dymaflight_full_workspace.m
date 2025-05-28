@@ -37,7 +37,8 @@ dymaDH = [
     0.041402    -pi/2           0.37084         0;
     0.033274     pi/2           0.0             0;
    -0.033274    -pi/2           0.0             0;
-    0            0              0.314325        0];
+    0            0              0.0             0];
+    % 0            0              0.314325        0];
 
 dymaDH_mod = dymaDH;
 
@@ -49,7 +50,7 @@ dyma_limits = [ -pi              pi;
                 -pi               0;
                 -pi              pi];
 
-iter_per_joint_array = [deg2rad(45),deg2rad(15),deg2rad(20),deg2rad(15),deg2rad(20),deg2rad(15),deg2rad(90)];
+iter_per_joint_array = [deg2rad(45),deg2rad(10),deg2rad(20),deg2rad(15),deg2rad(20),deg2rad(15),deg2rad(90)];
 
 
 % Get the recquired vector length so we don't make it too big
@@ -133,7 +134,7 @@ dyma_ws.full_unique.carty(:) = cart(:,2);
 dyma_ws.full_unique.cartz(:) = cart(:,3);
 
 % Now save the vector outputs
-file_name = "data/dyma_ws";
+file_name = "data/dyma_ws_no_ee";
 save(file_name, "dyma_ws", "-v7.3");
 
 
